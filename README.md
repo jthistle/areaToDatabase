@@ -1,4 +1,4 @@
-# Area to Databsae
+# Area to Database
 
 ## Installation
 

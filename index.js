@@ -56,19 +56,21 @@ function finish() {
 
 async function run() {
   const args = parser.parseArgs();
+  const dryrun = args.dry_run;
 
   const host = args.host || process.env.HOST;
   const database = args.database || process.env.DATABASE;
 
   const dbAddr = `mongodb://${host}/${database}`;
-  console.log(`Connecting to ${dbAddr}`);
-  await mongoose.connect(dbAddr, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
+  if (!dryrun) {
+    console.log(`Connecting to ${dbAddr}`);
+    await mongoose.connect(dbAddr, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+  }
 
   const filename = args.boundaries;
-  const dryrun = args.dry_run;
 
   console.log('Loading GeoJSON file...');
   const bounds = await loadJSON(filename);
