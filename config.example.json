@@ -1,0 +1,13 @@
+{
+  "host": "localhost",
+  "database": "gbptm",
+  "datasets": [
+    {
+      "id": 1,
+      "src": "./example.geojson",
+      "version": 1,
+      "priority": 5,
+      "type": "Example Area Type"
+    }
+  ]
+}
