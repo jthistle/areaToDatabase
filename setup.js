@@ -24,6 +24,7 @@ const Area = new Schema({
   datasetId: Number,
 });
 
-Area.index({ 'geometry': '2dsphere' });
+Area.index({ geometry: '2dsphere' });
+Area.index({ name: 'text' });
 
 mongoose.model('Area', Area);
